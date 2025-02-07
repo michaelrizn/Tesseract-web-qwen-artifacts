@@ -8,18 +8,23 @@ This project provides an interactive visualization of a 4D tesseract (hypercube)
    - A 4D hypercube (tesseract) is rendered in 3D space using perspective projection.
    - The fourth dimension (W-axis) is visualized through oscillations and rotations.
 
-2. **String Theory Concepts**:
+2. **Color-Coded Structure**:
+   - Each face of the tesseract is assigned a distinct color for better spatial understanding.
+   - Edges are colored based on their orientation in 4D space, making it easier to track the tesseract's geometry.
+   - The color scheme helps distinguish between parallel faces across different dimensions.
+
+3. **String Theory Concepts**:
    - Oscillations in the W-axis simulate the vibrational nature of strings in string theory.
    - Four axes (X, Y, Z, W) are displayed to emphasize the multidimensional nature of the object.
 
-3. **Rotations in 4D Space**:
+4. **Rotations in 4D Space**:
    - Users can rotate the tesseract in three dimensions (XY, XZ, YZ) and along the fourth dimension (XW) using mouse drag.
    - Smooth animations showcase how the tesseract "folds" and "unfolds" in 3D space.
 
-4. **Zoom Control**:
+5. **Zoom Control**:
    - Buttons allow users to zoom in and out for better exploration of the tesseract's structure.
 
-5. **Responsive Design**:
+6. **Responsive Design**:
    - The canvas dynamically adjusts to fit the browser window, ensuring a seamless experience on different screen sizes.
 
 ## How It Works
