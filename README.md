@@ -1,4 +1,4 @@
-# 4D Tesseract Visualization Inspired by String Theory
+# 14D Tesseract Visualization Inspired by String Theory
 
 This project provides an interactive visualization of a 4D tesseract (hypercube) inspired by concepts from string theory. The goal is to explore higher-dimensional objects and their behavior in a way that aligns with theoretical physics ideas, such as vibrations, extra dimensions, and multidimensional rotations.
 
