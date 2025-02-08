@@ -1,27 +1,26 @@
 const canvas = document.getElementById("fourD");
 const ctx = canvas.getContext("2d");
 
-let scaleMultiplier = 0.5;
+let scaleMultiplier = 0.4;
 let angleXY = 0;
 let angleXZ = 0;
 let angleYZ = 0;
 let angleXW = 0;
 
 function resizeCanvas() {
-    const size = Math.min(window.innerWidth, window.innerHeight) * 0.8;
-    canvas.width = size;
-    canvas.height = size;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
 
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 
 const projection3D = (point, size) => {
-    const scale = (size / 8) * scaleMultiplier;
+    const scale = (Math.min(canvas.width, canvas.height) / 4) * scaleMultiplier;
     const x = point[0] * scale;
     const y = point[1] * scale;
-    const z = point[2] * scale;
-    const fov = size / (z + size / 4);
+    const z = point[2] * scale + size * 2;
+    const fov = size / (z + size);
     return [
         x * fov + canvas.width / 2,
         y * fov + canvas.height / 2,
