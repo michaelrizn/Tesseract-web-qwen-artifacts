@@ -1,12 +1,11 @@
 # 4D Tesseract Visualization Inspired by String Theory
 
-This project provides an interactive visualization of a 4D tesseract (hypercube) inspired by concepts from string theory. The goal is to explore higher-dimensional objects and their behavior in a way that aligns with theoretical physics ideas, such as vibrations, extra dimensions, and multidimensional rotations.
-
 ## Features
 
 1. **Interactive 4D Tesseract**:
    - A 4D hypercube (tesseract) is rendered in 3D space using perspective projection.
    - The fourth dimension (W-axis) is visualized through oscillations and rotations.
+   - Enhanced depth perception with improved perspective calculations.
 
 2. **Color-Coded Structure**:
    - Each face of the tesseract is assigned a distinct color for better spatial understanding.
@@ -21,11 +20,15 @@ This project provides an interactive visualization of a 4D tesseract (hypercube)
    - Users can rotate the tesseract in three dimensions (XY, XZ, YZ) and along the fourth dimension (XW) using mouse drag.
    - Smooth animations showcase how the tesseract "folds" and "unfolds" in 3D space.
 
-5. **Zoom Control**:
-   - Buttons allow users to zoom in and out for better exploration of the tesseract's structure.
+5. **Interactive Controls**:
+   - Mouse/Touch drag for intuitive rotation control.
+   - Pinch-to-zoom on touch devices for dynamic scaling.
+   - Mouse wheel support for smooth zooming.
 
 6. **Responsive Design**:
-   - The canvas dynamically adjusts to fit the browser window, ensuring a seamless experience on different screen sizes.
+   - The canvas dynamically adjusts to fit the browser window.
+   - Full support for both desktop and mobile devices.
+   - Touch-optimized interface for mobile interaction.
 
 ## How It Works
 
@@ -38,16 +41,27 @@ This project provides an interactive visualization of a 4D tesseract (hypercube)
   - These matrices transform the 4D points into a rotated state before projecting them into 3D space.
 
 - **Projection**:
-  - The 4D points are projected into 3D space using a simple perspective projection.
+  - The 4D points are projected into 3D space using a perspective projection.
+  - Enhanced depth perception through optimized z-coordinate calculations.
   - The resulting 3D points are then projected onto the 2D canvas for rendering.
 
 - **Oscillation**:
-  - The W-axis is modulated using a cosine function (`Math.cos`) to simulate string-like vibrations, creating a dynamic effect.
+  - The W-axis is modulated using a cosine function to simulate string-like vibrations.
+  - This creates a dynamic effect that helps visualize the fourth dimension.
 
 ## Controls
 
-- **Mouse Drag**:
-  - Click and drag to rotate the tesseract in 3D and 4D space.
+- **Mouse/Touch Interaction**:
+  - Click and drag (or touch and drag) to rotate the tesseract in 3D and 4D space.
+  - Horizontal movement controls XY and XW rotations.
+  - Vertical movement controls XZ rotation.
 
-- **Zoom Buttons**:
-  - Use the "Zoom In" and "Zoom Out" buttons to adjust the scale of the visualization.
+- **Zoom**:
+  - Use mouse wheel to zoom in/out on desktop.
+  - Pinch gestures for zooming on touch devices.
+  - Dynamic scaling maintains visual clarity at different zoom levels.
+
+- **Touch Features**:
+  - Single-finger drag for rotation.
+  - Two-finger pinch for scaling.
+  - Smooth touch response for natural interaction.
