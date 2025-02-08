@@ -193,10 +193,20 @@ function draw() {
         if (start && end) {
             ctx.lineWidth = 9;
             ctx.strokeStyle = getEdgeColor(edge);
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 15;
+            ctx.shadowOffsetX = 10;
+            ctx.shadowOffsetY = 10;
             ctx.beginPath();
             ctx.moveTo(start[0], start[1]);
             ctx.lineTo(end[0], end[1]);
             ctx.stroke();
+            
+            // Reset shadow settings for next edge
+            ctx.shadowColor = 'transparent';
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
         }
     });
 
@@ -215,13 +225,7 @@ function multiplyMatrixVector(matrix, vector) {
     return result;
 }
 
-document.getElementById("zoomIn").addEventListener("click", () => {
-    scaleMultiplier *= 1.1;
-});
 
-document.getElementById("zoomOut").addEventListener("click", () => {
-    scaleMultiplier /= 1.1;
-});
 
 let isDragging = false;
 let lastMouseX = 0;
