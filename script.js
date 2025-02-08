@@ -283,6 +283,34 @@ canvas.addEventListener("wheel", (e) => {
     scaleMultiplier *= scale;
 });
 
+canvas.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+});
+
+canvas.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+        const deltaX = e.clientX - lastMouseX;
+        const deltaY = e.clientY - lastMouseY;
+
+        angleXY += deltaX * 0.01;
+        angleXZ += deltaY * 0.01;
+        angleXW += deltaX * 0.005;
+
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+    }
+});
+
+canvas.addEventListener("mouseup", () => {
+    isDragging = false;
+});
+
+canvas.addEventListener("mouseleave", () => {
+    isDragging = false;
+});
+
 canvas.addEventListener("mousemove", (e) => {
     if (isDragging) {
         const deltaX = e.clientX - lastMouseX;
