@@ -164,7 +164,7 @@ function drawAxes(size) {
             canvas.width,
         );
 
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 2;
         ctx.strokeStyle = colors[index];
         ctx.beginPath();
         ctx.moveTo(projectedStart[0], projectedStart[1]);
