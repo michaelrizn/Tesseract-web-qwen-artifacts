@@ -225,11 +225,61 @@ document.getElementById("zoomOut").addEventListener("click", () => {
 let isDragging = false;
 let lastMouseX = 0;
 let lastMouseY = 0;
+let lastTouchX = 0;
+let lastTouchY = 0;
+let lastPinchDistance = 0;
 
-canvas.addEventListener("mousedown", (e) => {
+function getTouchDistance(touch1, touch2) {
+    const dx = touch1.clientX - touch2.clientX;
+    const dy = touch1.clientY - touch2.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+canvas.addEventListener("touchstart", (e) => {
+    e.preventDefault();
     isDragging = true;
-    lastMouseX = e.clientX;
-    lastMouseY = e.clientY;
+    if (e.touches.length === 1) {
+        lastTouchX = e.touches[0].clientX;
+        lastTouchY = e.touches[0].clientY;
+    } else if (e.touches.length === 2) {
+        lastPinchDistance = getTouchDistance(e.touches[0], e.touches[1]);
+    }
+});
+
+canvas.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+    if (!isDragging) return;
+
+    if (e.touches.length === 1) {
+        const deltaX = e.touches[0].clientX - lastTouchX;
+        const deltaY = e.touches[0].clientY - lastTouchY;
+
+        angleXY += deltaX * 0.01;
+        angleXZ += deltaY * 0.01;
+        angleXW += deltaX * 0.005;
+
+        lastTouchX = e.touches[0].clientX;
+        lastTouchY = e.touches[0].clientY;
+    } else if (e.touches.length === 2) {
+        const currentDistance = getTouchDistance(e.touches[0], e.touches[1]);
+        const scale = currentDistance / lastPinchDistance;
+        scaleMultiplier *= scale;
+        lastPinchDistance = currentDistance;
+    }
+});
+
+canvas.addEventListener("touchend", () => {
+    isDragging = false;
+});
+
+canvas.addEventListener("touchcancel", () => {
+    isDragging = false;
+});
+
+canvas.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const scale = e.deltaY > 0 ? 0.9 : 1.1;
+    scaleMultiplier *= scale;
 });
 
 canvas.addEventListener("mousemove", (e) => {
