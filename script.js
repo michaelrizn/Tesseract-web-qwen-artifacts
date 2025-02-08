@@ -165,6 +165,7 @@ function drawAxes(size) {
             canvas.width,
         );
 
+        ctx.lineWidth = 9;
         ctx.strokeStyle = colors[index];
         ctx.beginPath();
         ctx.moveTo(projectedStart[0], projectedStart[1]);
@@ -191,6 +192,7 @@ function draw() {
         const start = projected2DVertices[a];
         const end = projected2DVertices[b];
         if (start && end) {
+            ctx.lineWidth = 9;
             ctx.strokeStyle = getEdgeColor(edge);
             ctx.beginPath();
             ctx.moveTo(start[0], start[1]);
