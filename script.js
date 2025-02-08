@@ -1,7 +1,7 @@
 const canvas = document.getElementById("fourD");
 const ctx = canvas.getContext("2d");
 
-let scaleMultiplier = 0.4;
+let scaleMultiplier = 1;
 let angleXY = 0;
 let angleXZ = 0;
 let angleYZ = 0;
@@ -164,7 +164,7 @@ function drawAxes(size) {
             canvas.width,
         );
 
-        ctx.lineWidth = 9;
+        ctx.lineWidth = 3;
         ctx.strokeStyle = colors[index];
         ctx.beginPath();
         ctx.moveTo(projectedStart[0], projectedStart[1]);
