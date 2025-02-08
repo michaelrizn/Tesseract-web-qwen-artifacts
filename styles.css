@@ -1,7 +1,7 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #1a1a1a; /* Darker background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,12 +12,6 @@ body {
 
 canvas {
     display: block;
-    background-color: #444;
-    box-shadow: 20px -20px 60px rgba(255, 255, 255, 0.1);
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    background-color: #222; /* Darker canvas background */
+    box-shadow: 0 0 100px rgba(255, 255, 255, 0.05); /* Subtle glow */
 }

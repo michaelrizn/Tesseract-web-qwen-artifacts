@@ -19,8 +19,8 @@ const projection3D = (point, size) => {
     const scale = (Math.min(canvas.width, canvas.height) / 4) * scaleMultiplier;
     const x = point[0] * scale;
     const y = point[1] * scale;
-    const z = point[2] * scale + size * 2;
-    const fov = size / (z + size);
+    const z = point[2] * scale - size * 20; // Increased depth for stronger perspective
+    const fov = size * 4 / (z + size * 24); // Enhanced perspective effect
     return [
         x * fov + canvas.width / 2,
         y * fov + canvas.height / 2,
@@ -63,14 +63,14 @@ for (let i = 0; i < 16; i++) {
 }
 
 const tesseractFaceColors = [
-    '#FF0000', // Red
-    '#00FF00', // Green
-    '#0000FF', // Blue
-    '#FFFF00', // Yellow
-    '#FF00FF', // Magenta
-    '#00FFFF', // Cyan
-    '#FFA500', // Orange
-    '#800080'  // Purple
+    '#FF6B6B', // Red
+    '#4ECDC4', // Turquoise
+    '#45B7D1', // Blue
+    '#96CEB4', // Mint
+    '#FFEEAD', // Yellow
+    '#D4A5A5', // Pink
+    '#9B59B6', // Purple
+    '#3498DB'  // Sky Blue
 ];
 
 function getEdgeColor(edge) {
@@ -175,7 +175,7 @@ function drawAxes(size) {
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+    
     drawAxes(2);
 
     const rotatedVertices = tesseractVertices.map((v) =>
@@ -193,20 +193,10 @@ function draw() {
         if (start && end) {
             ctx.lineWidth = 9;
             ctx.strokeStyle = getEdgeColor(edge);
-            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-            ctx.shadowBlur = 15;
-            ctx.shadowOffsetX = 10;
-            ctx.shadowOffsetY = 10;
             ctx.beginPath();
             ctx.moveTo(start[0], start[1]);
             ctx.lineTo(end[0], end[1]);
             ctx.stroke();
-            
-            // Reset shadow settings for next edge
-            ctx.shadowColor = 'transparent';
-            ctx.shadowBlur = 0;
-            ctx.shadowOffsetX = 0;
-            ctx.shadowOffsetY = 0;
         }
     });
 
