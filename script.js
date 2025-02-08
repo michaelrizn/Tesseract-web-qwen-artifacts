@@ -1,7 +1,7 @@
 const canvas = document.getElementById("fourD");
 const ctx = canvas.getContext("2d");
 
-let scaleMultiplier = 1;
+let scaleMultiplier = 0.5;
 let angleXY = 0;
 let angleXZ = 0;
 let angleYZ = 0;
